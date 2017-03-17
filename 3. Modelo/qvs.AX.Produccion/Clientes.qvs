@@ -30,6 +30,10 @@ Clientes:
 		NOMBREDIRPARTYTYPE			as	Cliente.TipoCliente,
 		NOMBREIDENTIFICATIONTYPE	as	Cliente.TipoIdentificacion,
 		SALESDISTRICT				as	Cliente.Zona
+	FROM
+	[$(vRutaOri)QST_MaestroClientes.QVD]
+	(qvd);
+
 		//CURRENCY,		
 		//CUSTGROUPVALUE,		
 		//DATAAREAID,		
@@ -50,8 +54,3 @@ Clientes:
 		//RECID,		
 		//RECVERSION,		
 		//SECONDLASTNAME,		
-
-	FROM
-	[$(vRutaOri)QST_MaestroClientes.QVD]
-	(qvd);
-
