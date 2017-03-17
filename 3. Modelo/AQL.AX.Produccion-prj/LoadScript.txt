@@ -1,0 +1,6 @@
+﻿///$tab Main
+$(Must_Include=qvs.ax.produccion\#loadscript.qvs);
+///$tab Exit
+CALL Qvc.Cleanup;
+TRACE Modelo Finalizado;
+EXIT SCRIPT;

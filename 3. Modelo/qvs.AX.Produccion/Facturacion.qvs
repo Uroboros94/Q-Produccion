@@ -11,18 +11,25 @@
 *****************************************************************************************************/
 Facturacion:
 	LOAD
-		//CUENTACLIENTE								as SK.Cliente,
 		ESTADOFACTURA 								as Venta.IdEstadoFactura,
-		//CUENTACLIENTE								as Venta.IdCliente,
 		IDFACTURA									as Venta.IdFactura,
 		SALESID										as IDPEDIDO,
 		ASIENTOFACTURA								as Venta.AsientoFactura,
+		Date(FECHAFACTURA,'YYYYMMDD')				as Venta.FechaFactura,
+		Num(VALORFACTURA)							as Venta.ValorFactura,
+		CREATEDBY									as Venta.Creador,
+		Num(CANTIDAD) 								as Venta.CantidadVentas,
+		Num(VALORLINEA)								as Venta.ValorLinea
+	FROM
+	[$(vRutaOri)QST_MODELFACTURAS.QVD]
+	(qvd);
+		//CUENTACLIENTE								as SK.Cliente,
+		//CUENTACLIENTE								as Venta.IdCliente,
 		//DIASVENCIDOS								as Venta.DiasVencidos,
 		//DIMENSIONDEFAULTFACTSERV					as Venta.FactServ,
 		//DIMENSIONDEFAULTSALES						as Venta.Sales,
 		//DIVISA 										as Venta.Divisa,
 		//NOMBREESTADOFACTURA							as Venta.EstadoFactura,
-		Date(FECHAFACTURA,'YYYYMMDD')				as Venta.FechaFactura,
 		//Date(FECHACIERRE,'YYYYMMDD')				as Venta.FechaCierre,
 		//Date(FECHAVENCIMIENTO,'YYYYMMDD')			as Venta.FechaVencimiento,
 		//Date(ULTIMAFECHALIQUIDACION,'YYYYMMDD')		as Venta.FechaUltLiquidacion,
@@ -32,23 +39,16 @@ Facturacion:
 		//Num(SALDOVENCIDOTOTAL)						as Venta.SaldoVencidoTotal,
 		//ULTIMOASIENTOLIQUIDACION					as Venta.UltimoAsientoLiquidacion,
 		//Num(VALORDIVISALIQUIDADA)					as Venta.ValorDivisaLiquidada,
-		Num(VALORFACTURA)							as Venta.ValorFactura,
 		//Num(VALORFACTURADIVISATRANS)				as Venta.ValorFacturaDivisaTrans,
 		//Num(VALORLIQUIDADO)							as Venta.ValorLiquidado,
 		//VENCIDA 									as Venta.EsVencida,
 		//NOMBREVENCIDA								as Venta.NombreVencida,
 		//Date(CREATEDDATETIME)						as Venta.FechaCreacion,
-		CREATEDBY									as Venta.Creador,
-		Num(CANTIDAD) 								as Venta.CantidadVentas,
-		Num(VALORLINEA)								as Venta.ValorLinea
-		//MODULOGENERACION,
 		//NOMBREMODULOGENERACION,
+		//MODULOGENERACION,
 		//CONDICIONPAGO,
 		//NOMBRECLIENTE,
 		//DATAAREAID,
 		//RECVERSION,
 		//PARTITION,
 		//RECID
-	FROM
-	[$(vRutaOri)QST_MODELFACTURAS.QVD]
-	(qvd);
